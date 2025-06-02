@@ -34,15 +34,22 @@ cd fpga && python3 -m http.server 8000
 🔥 What it offers
 
 ✅ AI Predictions – The system suggests the optimal clock speed based on previous synthesis data 
+
 ✅ Dynamic Charts – Trends in frequency, timing, and logic cell usage 
+
 ✅ Full Interactivity – AI updates in real-time without page reload 
+
 ✅ Easy to use – One script does all the setup automatically!
+
 
 🎯 Key Takeaway: AI-driven FPGA Optimization!
 
+
 You don't need to be an expert in advanced digital systems to improve FPGA performance with AI. The system analyzes, optimizes, and visualizes results automatically!
 
-Perfect for: 
+
+🎯 Perfect for: 
+
 
 🎯 FPGA + AI research and development 
 🎮 Advanced projects for tech enthusiasts
@@ -52,4 +59,4 @@ Perfect for:
 
 🔥 Let me know if you want any tweaks! 🚀 
 
-#AI #FPGA #MachineLearning #Automation #Python #SQLite #Bash #DataVisualization #TechDemo #RealtimeUpdates #FullStackEngineering #Innovation 🎯
+#AI #FPGA #MachineLearning #Automation #Python #SQLite #Bash #DataVisualization #TechDemo #RealtimeUpdates #FullStackEngineering #Innovation 
