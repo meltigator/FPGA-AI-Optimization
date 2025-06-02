@@ -51,7 +51,8 @@ You don't need to be an expert in advanced digital systems to improve FPGA perfo
 🎯 Perfect for: 
 
 
-🎯 FPGA + AI research and development 
+🎯 FPGA + AI research and development
+
 🎮 Advanced projects for tech enthusiasts
 
 🔗 Want to test it? Download the script here: 
