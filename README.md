@@ -130,7 +130,9 @@ cd fpga && python3 -m http.server 8000
 
 🔗 This opens new possibilities for cost-effective, AI-driven hardware innovation in industrial automation! 🎯
 
-🔥 Let me know if you want to refine the locomotive control concept further! 🚀 We could add a specific FPGA module handling motor PWM signals, making it even more practical.
+🔥 Let me know if you want to refine the locomotive control concept further! 
+
+🚀 We could add a specific FPGA module handling motor PWM signals, making it even more practical.
 
 
 #AI #FPGA #MachineLearning #Automation #Python #SQLite #Bash #DataVisualization #TechDemo #RealtimeUpdates #FullStackEngineering #Innovation 
