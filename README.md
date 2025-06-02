@@ -80,7 +80,9 @@ You don't need to be an expert in advanced digital systems to improve FPGA perfo
 ✅ Retro Hardware Enhancement – FPGA enables modern improvements while preserving legacy system behavior.
 
 
+
 🚀 Example: Amiga accelerators with FPGA
+
 
 
 Many enthusiasts use 68060 accelerators paired with FPGA to emulate chipset behaviors or expand system capabilities.
