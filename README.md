@@ -131,6 +131,7 @@ python3 analyze_fpga.py
 
 bash
 cd fpga && python3 -m http.server 8000
+
 🚀 Want AI to optimize locomotive power control? The same FPGA techniques apply!
 
 🔗 This opens new possibilities for cost-effective, AI-driven hardware innovation in industrial automation! 🎯
