@@ -21,7 +21,9 @@ I've built an intelligent FPGA system using Bash, SQLite, Python, AI, and Chart.
 
 bash
 bash fpga_setup.sh
+
 👉 Generate and analyze FPGA synthesis: The system collects clock speed, timing, and logic cell usage, storing it in SQLite 
+
 👉 Start the web server:
 
 bash
