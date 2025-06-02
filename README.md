@@ -135,4 +135,5 @@ cd fpga && python3 -m http.server 8000
 🚀 We could add a specific FPGA module handling motor PWM signals, making it even more practical.
 
 
+
 #AI #FPGA #MachineLearning #Automation #Python #SQLite #Bash #DataVisualization #TechDemo #RealtimeUpdates #FullStackEngineering #Innovation 
