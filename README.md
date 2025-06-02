@@ -19,6 +19,7 @@ bash fpga_setup.sh
 
 bash
 cd fpga && python3 -m http.server 8000
+
 👉 View the results at http://localhost:8000 🎉
 
 🚀 Want to see the magic of AI? Click the "Update AI" button! 💡 The AI instantly updates its prediction for the best FPGA parameters!
