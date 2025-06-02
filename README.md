@@ -3,11 +3,17 @@
 I've built an intelligent FPGA system using Bash, SQLite, Python, AI, and Chart.js to optimize configurations in real-time!
 
 🧠 Why is it revolutionary?
+
 ✅ Zero Config – Everything is managed by a single Bash script, no manual setup needed 
+
 ✅ AI-powered FPGA optimization – Machine Learning predicts the best clock and timing 
+
 ✅ Interactive dashboard – Dynamic charts + a button to update AI predictions 
+
 ✅ Integrated database – SQLite stores synthesis results for future improvements 
+
 ✅ Instant demonstration – Just run the script and see real-time optimization
+
 
 🎯 How does it work?
 👉 Run the script:
