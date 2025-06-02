@@ -15,6 +15,7 @@ I've built an intelligent FPGA system using Bash, SQLite, Python, AI, and Chart.
 ✅ Instant demonstration – Just run the script and see real-time optimization
 
 
+
 🎯 How does it work?
 👉 Run the script:
 
@@ -25,12 +26,13 @@ bash fpga_setup.sh
 
 bash
 cd fpga && python3 -m http.server 8000
-
 👉 View the results at http://localhost:8000 🎉
 
-🚀 Want to see the magic of AI? Click the "Update AI" button! 💡 The AI instantly updates its prediction for the best FPGA parameters!
+🚀 Want to see the magic of AI? Click the "Update AI" button! 
+💡 The AI instantly updates its prediction for the best FPGA parameters!
 
 🔥 What it offers
+
 ✅ AI Predictions – The system suggests the optimal clock speed based on previous synthesis data 
 ✅ Dynamic Charts – Trends in frequency, timing, and logic cell usage 
 ✅ Full Interactivity – AI updates in real-time without page reload 
