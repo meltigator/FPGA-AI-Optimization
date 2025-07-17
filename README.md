@@ -1,4 +1,4 @@
-**--*** FPGA AI Optimization: Machine Learning for Automated Synthesis ***--**
+---> FPGA AI Optimization: Machine Learning for Automated Synthesis <---
 
 I've built an intelligent FPGA system using Bash, SQLite, Python, AI, and Chart.js to optimize configurations in real-time!
 
