@@ -21,10 +21,10 @@ for tool in yosys nextpnr-ice40 nextpnr-generic nextpnr-ecp5 openFPGALoader ecpp
 done
 
 # Update package manager only if necessary
-echo "🔄 Updating package manager..."
+echo " Updating package manager..."
 pacman -Sy --noconfirm
 
-echo "📦 Installing required packages..."
+echo " Installing required packages..."
 for pkg in base-devel mingw-w64-x86_64-gcc mingw-w64-x86_64-cmake mingw-w64-x86_64-nextpnr mingw-w64-x86_64-openFPGALoader mingw-w64-x86_64-ecpprog mingw-w64-x86_64-icestorm mingw-w64-x86_64-yosys mingw-w64-x86_64-libusb mingw-w64-ucrt-x86_64-gcc; do
     if ! pacman -Q $pkg &> /dev/null; then
         pacman -S --needed --noconfirm $pkg
@@ -35,7 +35,7 @@ done
 DB_FILE="fpga/fpga_data.db"
 
 # Create SQLite DB and table (if not exists)
-echo "📊 Setting up SQLite Database..."
+echo " Setting up SQLite Database..."
 sqlite3 "$DB_FILE" <<EOF
 CREATE TABLE IF NOT EXISTS synthesis_results (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,7 +48,7 @@ EOF
 
 # Logging
 LOG_FILE="fpga/log.txt"
-echo "🛠 FPGA Setup Started - $(date)" > "$LOG_FILE"
+echo " FPGA Setup Started - $(date)" > "$LOG_FILE"
 
 while true; do
     # Menu interattivo
@@ -71,7 +71,7 @@ while true; do
 
     # Option 1: FPGA tool verification
     if [[ "$choice" == "1" ]]; then
-        echo "🔍 Checking for FPGA tools..." | tee -a "$LOG_FILE"
+        echo " Checking for FPGA tools..." | tee -a "$LOG_FILE"
         for tool in yosys nextpnr-ice40 nextpnr-generic nextpnr-ecp5 openFPGALoader ecpprog iceprog icepack icetime python python-pandas python-scikit-learn; do
             if command -v $tool &> /dev/null; then
                 echo "$tool found!" | tee -a "$LOG_FILE"
@@ -80,12 +80,12 @@ while true; do
                 pacman -S --needed --noconfirm mingw-w64-x86_64-$tool | tee -a "$LOG_FILE"
             fi
         done
-        echo "✅ FPGA tool verification complete!" | tee -a "$LOG_FILE"
+        echo " FPGA tool verification complete!" | tee -a "$LOG_FILE"
     fi
 
     # Option 2: Synthesize and collect metrics
     if [[ "$choice" == "2" ]]; then
-        echo "⚙️ Synthesis and bitstream generation..." | tee -a "$LOG_FILE"
+        echo " Synthesis and bitstream generation..." | tee -a "$LOG_FILE"
 
 		for i in {1..5}; do
 			# Genera dimensione contatore variabile
@@ -93,7 +93,7 @@ while true; do
 			reset_value=$((12000000 * i))
 
 			# Generate Verilog file
-			echo "📝 Creating Verilog file #$i..." | tee -a "$LOG_FILE"
+			echo " Creating Verilog file #$i..." | tee -a "$LOG_FILE"
 			cat <<EOF > fpga/blink.v
 module blink (
     input wire clk,
@@ -112,18 +112,18 @@ endmodule
 EOF
 
         # Generate PCF file
-        echo "📝 Creating PCF file..." | tee -a "$LOG_FILE"
+        echo " Creating PCF file..." | tee -a "$LOG_FILE"
         cat <<EOF > fpga/board.pcf
 set_io clk 21
 set_io led 23
 EOF
 
         # Run synthesis & collect metrics
-        echo "⚙️ Running Yosys synthesis..." | tee -a "$LOG_FILE"
+        echo " Running Yosys synthesis..." | tee -a "$LOG_FILE"
         yosys -p "read_verilog fpga/blink.v; synth_ice40 -json fpga/build/blink.json" | tee -a "$LOG_FILE"
 
         # Run place-and-route
-        echo "⚙️ Running nextpnr synthesis..." | tee -a "$LOG_FILE"
+        echo " Running nextpnr synthesis..." | tee -a "$LOG_FILE"
         nextpnr-ice40 --json fpga/build/blink.json --pcf fpga/board.pcf --asc fpga/build/blink.asc --package tq144 | tee -a "$LOG_FILE"
 
         # Extract FPGA metrics (fake values for now)
@@ -135,33 +135,33 @@ EOF
         TIMING_NS=$(echo "1.13 - $i*0.05" | bc)
 		
         # Save metrics to SQLite DB
-        echo "📊 Saving FPGA synthesis metrics to DB..."
+        echo " Saving FPGA synthesis metrics to DB..."
         sqlite3 "$DB_FILE" <<EOF
 INSERT INTO synthesis_results (timestamp, freq_max, cells, timing_ns)
 VALUES ('$(date)', $FREQ_MAX, $CELLS_USED, $TIMING_NS);
 EOF
 
-        echo "✅ Metrics saved to SQLite database!" | tee -a "$LOG_FILE"
+        echo " Metrics saved to SQLite database!" | tee -a "$LOG_FILE"
 
 		done
     fi
 
     # Option 3: Simulate RBF generation (Quartus)
     if [[ "$choice" == "3" ]]; then
-        echo "🎭 Simulating RBF generation (Quartus)..." | tee -a "$LOG_FILE"
+        echo " Simulating RBF generation (Quartus)..." | tee -a "$LOG_FILE"
 
-        echo "📦 Simulating Quartus conversion..." | tee -a "$LOG_FILE"
+        echo " Simulating Quartus conversion..." | tee -a "$LOG_FILE"
         touch fpga/build/fake.sof
-        echo "✔ Fake SOF file generated!" | tee -a "$LOG_FILE"
+        echo " Fake SOF file generated!" | tee -a "$LOG_FILE"
 
-        echo "⚙️ Simulating Quartus conversion to RBF..." | tee -a "$LOG_FILE"
+        echo " Simulating Quartus conversion to RBF..." | tee -a "$LOG_FILE"
         cp fpga/build/fake.sof fpga/build/fake.rbf
-        echo "✅ Fake RBF generated!" | tee -a "$LOG_FILE"
+        echo " Fake RBF generated!" | tee -a "$LOG_FILE"
     fi
 
     # Option 4: Check FPGA connection
     if [[ "$choice" == "4" ]]; then
-        echo "🚀 Checking for FPGA connection..." | tee -a "$LOG_FILE"
+        echo " Checking for FPGA connection..." | tee -a "$LOG_FILE"
 
         OS_TYPE=$(uname -s)
         FPGA_CONNECTED=false
@@ -177,15 +177,15 @@ EOF
         fi
 
         if [[ "$FPGA_CONNECTED" == true ]]; then
-            echo "✅ FPGA detected!" | tee -a "$LOG_FILE"
+            echo " FPGA detected!" | tee -a "$LOG_FILE"
         else
-            echo "⚠️ No FPGA detected! Skipping FPGA check." | tee -a "$LOG_FILE"
+            echo " No FPGA detected! Skipping FPGA check." | tee -a "$LOG_FILE"
         fi
     fi
 
    # Option 5: Analyze FPGA data
     if [[ "$choice" == "5" ]]; then
-        echo "📊 Creating and launching Python analysis script..."
+        echo " Creating and launching Python analysis script..."
 
         # Crea script Python senza Flask
         cat <<'EOF' > analyze_fpga.py
@@ -212,7 +212,7 @@ conn.close()
 
 # Se non ci sono dati, generiamo dati demo
 if not data:
-    print("⚠️ No FPGA data found! Generating demo data...")
+    print(" No FPGA data found! Generating demo data...")
     data = []
     import random
     from datetime import datetime, timedelta
@@ -263,7 +263,7 @@ if sklearn_available and len(data) > 2:
         })
     except Exception as e:
         ai_data["error"] = str(e)
-        print(f"⚠️ AI Error: {e}")
+        print(f" AI Error: {e}")
 
 # Creazione del JSON combinato
 combined_data = {
@@ -275,7 +275,7 @@ combined_data = {
 with open("fpga/combined_data.json", "w") as f:
     json.dump(combined_data, f, indent=4)
 
-print("✅ Combined data saved to fpga/combined_data.json")
+print(" Combined data saved to fpga/combined_data.json")
 EOF
 
         # Run Python script
@@ -339,13 +339,13 @@ EOF
                 `;
             } else {
                 content += `
-                    <p class="error">⚠️ AI features disabled: scikit-learn not installed</p>
+                    <p class="error"> AI features disabled: scikit-learn not installed</p>
                     <p>Install with: <code>pacman -S mingw-w64-x86_64-python-scikit-learn</code></p>
                 `;
             }
 
             if (aiData.error) {
-                content += `<p class="error">⚠️ AI Error: ${aiData.error}</p>`;
+                content += `<p class="error"> AI Error: ${aiData.error}</p>`;
             }
 
             document.getElementById("results").innerHTML = content;
@@ -425,15 +425,15 @@ EOF
 </html>
 EOF
 
-        echo "✅ Web interface created!" | tee -a "$LOG_FILE"
+        echo " Web interface created!" | tee -a "$LOG_FILE"
 
         # Start web server with improved OS detection
-        echo "🌍 Starting web server at http://localhost:8000"
+        echo " Starting web server at http://localhost:8000"
         cd fpga
 
         # Improved Windows detection
         if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
-            echo "🌍 Run on Windows.."
+            echo " Run on Windows.."
             start http://localhost:8000/
             python -m http.server 8000
         else
