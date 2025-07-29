@@ -2,7 +2,7 @@
 # Compatible with MS Windows + MSYS2
 # Written by Andrea Giani
 
-echo "🛠 Starting FPGA setup..."
+echo " Starting FPGA setup..."
 
 # Remove existing FPGA folder if it exists
 rm -rf fpga
@@ -10,7 +10,7 @@ rm -rf fpga
 # Create new FPGA and build folders
 mkdir -p fpga/build
 
-echo "🔍 Checking for FPGA tools..."
+echo " Checking for FPGA tools..."
 for tool in yosys nextpnr-ice40 nextpnr-generic nextpnr-ecp5 openFPGALoader ecpprog iceprog icepack icetime python python-pandas python-scikit-learn; do
     if command -v $tool &> /dev/null; then
         echo "$tool found!"
@@ -65,7 +65,7 @@ while true; do
 
     # Option 0: Exit script
     if [[ "$choice" == "0" ]]; then
-        echo "🚪 Exiting FPGA setup..."
+        echo " Exiting FPGA setup..."
         exit 0
     fi
 
@@ -303,7 +303,7 @@ EOF
             } catch (error) {
                 document.getElementById("results").innerHTML = `
                     <p class="error">Error loading data: ${error.message}</p>
-                    <button onclick="loadData()">🔄 Retry</button>
+                    <button onclick="loadData()">Retry</button>
                 `;
             }
         }
@@ -314,7 +314,7 @@ EOF
 
             let content = `
                 <h2>FPGA Synthesis Metrics</h2>
-                <button onclick="loadData()">🔄 Refresh Data</button>
+                <button onclick="loadData()">Refresh Data</button>
                 <table border='1'>
                     <tr><th>Timestamp</th><th>Max Freq (MHz)</th><th>Cells</th><th>Timing (ns)</th></tr>
             `;
@@ -329,7 +329,7 @@ EOF
             });
             
             content += "</table>";
-            content += `<h2>🔮 AI Optimization</h2>`;
+            content += `<h2>AI Optimization</h2>`;
             
             if (aiData.sklearn_available) {
                 content += `
@@ -437,7 +437,7 @@ EOF
             start http://localhost:8000/
             python -m http.server 8000
         else
-            echo "🌍 Run on Linux/Unix.."
+            echo " Run on Linux/Unix.."
             python3 -m http.server 8000
         fi
     fi
