@@ -1,31 +1,31 @@
----> FPGA AI Optimization: Machine Learning for Automated Synthesis <---
+# ___FPGA AI Optimization: Machine Learning for Automated Synthesis__
 
 I've built an intelligent FPGA system using Bash, SQLite, Python, AI, and Chart.js to optimize configurations in real-time!
 
-* Why is it revolutionary?
+## Why is it revolutionary?
 
-[.] Zero Config – Everything is managed by a single Bash script, no manual setup needed 
+* Zero Config – Everything is managed by a single Bash script, no manual setup needed 
 
-[.] AI-powered FPGA optimization – Machine Learning predicts the best clock and timing 
+* AI-powered FPGA optimization – Machine Learning predicts the best clock and timing 
 
-[.] Interactive dashboard – Dynamic charts + a button to update AI predictions 
+* Interactive dashboard – Dynamic charts + a button to update AI predictions 
 
-[.] Integrated database – SQLite stores synthesis results for future improvements 
+* Integrated database – SQLite stores synthesis results for future improvements 
 
-[.] Instant demonstration – Just run the script and see real-time optimization
+* Instant demonstration – Just run the script and see real-time optimization
 
 
 
-* How does it work?
+## How does it work?
 
-* Run the script:
+### Run the script:
 
 bash
 bash fpga_setup.sh
 
-* Generate and analyze FPGA synthesis: The system collects clock speed, timing, and logic cell usage, storing it in SQLite 
+### Generate and analyze FPGA synthesis: The system collects clock speed, timing, and logic cell usage, storing it in SQLite 
 
-* Start the web server:
+### Start the web server:
 
 bash
 cd fpga && python3 -m http.server 8000
@@ -35,25 +35,25 @@ cd fpga && python3 -m http.server 8000
 * The AI instantly updates its prediction for the best FPGA parameters!
 
 
-* What it offers
+## What it offers
 
-[.] AI Predictions – The system suggests the optimal clock speed based on previous synthesis data 
+* AI Predictions – The system suggests the optimal clock speed based on previous synthesis data 
 
-[.] Dynamic Charts – Trends in frequency, timing, and logic cell usage 
+* Dynamic Charts – Trends in frequency, timing, and logic cell usage 
 
-[.] Full Interactivity – AI updates in real-time without page reload 
+* Full Interactivity – AI updates in real-time without page reload 
 
-[.] Easy to use – One script does all the setup automatically!
+* Easy to use – One script does all the setup automatically!
 
 
 
-* Key Takeaway: AI-driven FPGA Optimization!
+## Key Takeaway: AI-driven FPGA Optimization!
 
 
 You don't need to be an expert in advanced digital systems to improve FPGA performance with AI. The system analyzes, optimizes, and visualizes results automatically!
 
 
-* Perfect for: 
+## Perfect for: 
 
 
 * FPGA + AI research and development
