@@ -128,13 +128,13 @@ python3 analyze_fpga.py
 bash
 cd fpga && python3 -m http.server 8000
 
-* Want AI to optimize locomotive power control? The same FPGA techniques apply!
+* ___Want AI to optimize locomotive power control? The same FPGA techniques apply!___
 
-* This opens new possibilities for cost-effective, AI-driven hardware innovation in industrial automation! 
+* ___This opens new possibilities for cost-effective, AI-driven hardware innovation in industrial automation!___
 
-* Let me know if you want to refine the locomotive control concept further! 
+* ___Let me know if you want to refine the locomotive control concept further!___ 
 
-* We could add a specific FPGA module handling motor PWM signals, making it even more practical.
+* ___We could add a specific FPGA module handling motor PWM signals, making it even more practical.___
 
 
 
