@@ -4,15 +4,15 @@ I've built an intelligent FPGA system using Bash, SQLite, Python, AI, and Chart.
 
 ## Why is it revolutionary?
 
-* Zero Config – Everything is managed by a single Bash script, no manual setup needed 
+* ___Zero Config – Everything is managed by a single Bash script, no manual setup needed___ 
 
-* AI-powered FPGA optimization – Machine Learning predicts the best clock and timing 
+* ___AI-powered FPGA optimization – Machine Learning predicts the best clock and timing___ 
 
-* Interactive dashboard – Dynamic charts + a button to update AI predictions 
+* ___Interactive dashboard – Dynamic charts + a button to update AI predictions___ 
 
-* Integrated database – SQLite stores synthesis results for future improvements 
+* ___Integrated database – SQLite stores synthesis results for future improvements___ 
 
-* Instant demonstration – Just run the script and see real-time optimization
+* ___Instant demonstration – Just run the script and see real-time optimization___
 
 
 
